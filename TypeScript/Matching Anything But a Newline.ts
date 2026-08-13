@@ -1,0 +1,32 @@
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+let inputString: string = '';
+let inputLines: string[] = [];
+let currentLine: number = 0;
+
+process.stdin.on('data', function(inputStdin: string): void {
+ inputString += inputStdin;
+});
+
+process.stdin.on('end', function(): void {
+ inputLines = inputString.split('\n');
+ inputString = '';
+ main();
+});
+
+function readLine(): string {
+ return inputLines[currentLine++];
+}
+
+function main() {
+ const testString: string = readLine();
+
+ // Regex pattern: matches any 3 characters, dot, any 3 characters, dot, any 3 characters, dot, any 3 characters
+ const regexPattern: RegExp = /^.{3}\..{3}\..{3}\..{3}$/;
+
+ // Test if the string matches the pattern
+ const result: boolean = regexPattern.test(testString);
+
+ // Output the result
+ console.log(result);
+}

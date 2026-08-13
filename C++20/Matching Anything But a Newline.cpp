@@ -10,7 +10,7 @@ int main() {
     string s;
     getline(cin, s);
 
-    regex pattern("...");
+    regex pattern("^.{3}\\..{3}\\..{3}\\..{3}$");
     if (regex_match(s, pattern))
         cout << "True";
     else

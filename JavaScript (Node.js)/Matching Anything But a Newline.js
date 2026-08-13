@@ -1,6 +1,6 @@
-const Regex_Pattern = '...';
+const Regex_Pattern = /^.{3}\..{3}\..{3}\..{3}$/;
 function processData(test_string) {
-    return new RegExp(`^${Regex_Pattern}$`).test(test_string);
+    return Regex_Pattern.test(test_string);
 }
 
 const readline = require('readline').createInterface({
